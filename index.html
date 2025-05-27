@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game | TCCCC</title>
+</head>
+
+<style>
+  /* SlotMachine.css */
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffe29f, #ffa99f, #ff719a);
+    background-size: 600% 600%;
+    animation: gradientMove 15s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .slot-machine-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px #ff6b6b;
+  }
+
+  .reels-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 2rem;
+  }
+
+  .reel {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    color: #333;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+
+  button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff5f6d;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover:not(:disabled) {
+    background-color: #ff3b3f;
+    transform: scale(1.05);
+  }
+
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .win-message {
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: #fff700;
+    text-shadow: 2px 2px #d16ba5;
+  }
+
+  .burst-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .burst-circle {
+    position: absolute;
+    width: var(--size, 30px);
+    height: var(--size, 30px);
+    background: radial-gradient(circle, gold, orange);
+    border-radius: 50%;
+    animation: burst 1.2s ease-out forwards;
+    opacity: 0.9;
+  }
+
+  @keyframes burst {
+    0% {
+      transform: scale(1) translate(0, 0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(2) translate(var(--x), var(--y));
+      opacity: 0;
+    }
+  }
+</style>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
